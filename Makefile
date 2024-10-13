@@ -19,7 +19,7 @@ CARGO_RUN_FLAGS ?=
 RQBIT_OUTPUT_FOLDER ?= /tmp/scratch
 RQBIT_POSTGRES_CONNECTION_STRING ?= postgres:///rqbit
 
-@PHONY: devserver-release
+@PHONY: devserver-profiles
 devserver-profile:
 	cargo run --release $(CARGO_RUN_FLAGS) -- server start $(RQBIT_OUTPUT_FOLDER)
 
@@ -34,7 +34,7 @@ devserver:
 	cargo run $(CARGO_RUN_FLAGS) -- \
 	server start $(RQBIT_OUTPUT_FOLDER)
 
-@PHONY: devserver
+@PHONY: devserver-postgres
 devserver-postgres:
 	echo -n '' > $(RQBIT_LOG_FILE) && \
 	cargo run $(CARGO_RUN_FLAGS) -- \
